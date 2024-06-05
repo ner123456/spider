@@ -28,7 +28,7 @@ def get_start():
                 duration = web.find_element(By.XPATH,f'/html/body/div[3]/div/div[2]/div[2]/div/div/div/div[{poision}]/div/div[{video_num}]/div/div[2]/a/div/div[2]/div/span').text
                 pub_time = web.find_element(By.XPATH,f'/html/body/div[3]/div/div[2]/div[2]/div/div/div/div[{poision}]/div/div[{video_num}]/div/div[2]/div/div/p/a/span[2]').text.replace('· ','')
                 print([title,pub_time,username,view_num,danmu,duration])
-                with open(f'{key_word}.csv', mode='a', encoding='utf-8-sig', newline='') as f:  # 将格式化数据写入
+                with open(f'{key_word}.csv', mode='a', encoding='utf-8-sig', newline='') as f:  
                     csv_writer = csv.writer(f)
                     csv_writer.writerow([title,pub_time,username,view_num,danmu,duration])
                 break
@@ -38,7 +38,7 @@ def get_start():
 
 if __name__ == '__main__':
     key_word = '书籍'
-    with open(f'{key_word}.csv', mode='w', encoding='utf-8-sig', newline='') as f:  # 将格式化数据写入
+    with open(f'{key_word}.csv', mode='w', encoding='utf-8-sig', newline='') as f:  
         csv_writer = csv.writer(f)
         csv_writer.writerow(['标题', '发布时间','用户名', '播放量', '弹幕数', '时长'])
     get_start()
